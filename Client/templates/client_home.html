@@ -43,12 +43,12 @@
                         <span class="badge bg-success position-absolute m-3">-30%</span>
                         <a href="#" class="btn-wishlist"><svg width="24" height="24"><use xlink:href="#heart"></use></svg></a>
                         <figure>
-                          <a href="#" title="Product Title">
+                          <a href="{% url 'SingleProduct' pro_id=i.id %}" title="Product Title">
                             <img src="{{i.Image.url}}"  class="tab-image" style="object-fit: contain; width:200px; height:150px">
                           </a>
                         </figure>
-                        <h3>{{i.Rooms}} bedroom</h3>
-                        <span class="qty">1 Unit</span><span class="rating"><svg width="24" height="24" class="text-primary"><use xlink:href="#star-solid"></use></svg> 4.5</span>
+                        <h6>{{i.Rooms}} bedroom in {{i.City}}</h6>
+                        <span class="rating"><svg width="20" height="24" class="text-primary align-items-center justify-content-between"><use xlink:href="#star-solid"></use></svg>4</span><span class="d-flex qty justify-content-between">{{i.Category}}</span>
                         <span class="price">₹ {{i.Rent}} /month</span>
                         <div class="d-flex align-items-center justify-content-between">
                           <div class="input-group product-qty">

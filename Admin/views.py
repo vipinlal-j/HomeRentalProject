@@ -7,16 +7,20 @@ from Admin.models import CategoryDB
 from django.utils.datastructures import MultiValueDictKeyError
 from django.core.files.storage import FileSystemStorage
 from HouseRentalManagementSystem import settings
-from User.models import userDB
+from User.models import userDB, PostDB
 from Client.models import ClientDB
 from User import views
+import datetime
+
 
 # Create your views here.
 
 def index(req):
 
-
-    return render(req,"index.html")
+    categories = CategoryDB.objects.count()
+    post = PostDB.objects.count()
+    time = datetime.datetime.now()
+    return render(req,"index.html", {'categories': categories, 'post':post, 'time':time})
 def admin_home(request):
     return render(request,"admin_home.html")
 def view_users(request):

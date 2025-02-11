@@ -11,6 +11,6 @@ urlpatterns = [
     path('client_home/', views.client_home, name="client_home"),
     path('ClientLogin/', views.ClientLogin, name="ClientLogin"),
     path('ClientLoginAuth/', views.ClientLoginAuth, name="ClientLoginAuth"),
-
+    path('SingleProduct/<int:pro_id>/', views.SingleProduct, name="SingleProduct"),
 
 ]

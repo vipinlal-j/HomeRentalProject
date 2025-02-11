@@ -1,0 +1,135 @@
+<!doctype html>
+
+{% extends 'client_index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>REGISTER</title>
+</head>
+<body>
+
+<div style="width:60%; margin:auto">
+    <section id="latest-blog" class="py-3">
+      <div class="container-fluid">
+        <div class="row" style="display:flex">
+          <div class="section-header d-flex align-items-center justify-content-between my-5">
+            <p>            </p><h2 class="section-title">{{data.Rooms}} Room {{data.Category}} in {{data.City}}</h2>
+            <div class="btn-wrap align-right">
+              <a href="{% url 'client_home' %}" class="d-flex align-items-center nav-link">View All Listings <svg width="24" height="24"><use xlink:href="#arrow-right"></use></svg></a>
+            </div>
+          </div>
+        </div>
+        <div  >
+          <div>
+            <article class="post-item card border-0 shadow-sm p-3" style="display:flex">
+              <div class="image-holder zoom-effect" style="display:flex">
+                <div>
+                <a href="#">
+                  <img src="{{data.Image.url}}" alt="post" class="card-img-top" style="width:400px; height:auto">
+                </a>
+                  </div>
+                <div>
+              <div class="card-body">
+                <div class="post-meta d-flex text-uppercase gap-3 my-2 align-items-center">
+                  <div class="meta-date"><svg width="16" height="16"><use xlink:href="#calendar"></use></svg>22 Aug 2021</div>
+                  <div class="meta-categories"><svg width="16" height="16"><use xlink:href="#category"></use></svg>
+                    {{data.City}}</div>
+                </div>
+                <div class="post-header">
+                  <h3 class="post-title">
+                    <a href="#" class="text-decoration-none">{{ data.Rooms }} Bedroom  {{data.Category}}</a>
+                    <p >Kitchen : {{data.Kitchen}}<br>
+                      <p style="color:red">₹{{data.Rent}}/month</p>
+
+                    </p>
+                  </h3>
+                  <p>{{ data.Information }}  {{data.City}}</p>
+                  <p>Phone : {{data.Mobile}}</p>
+                </div>
+              </div>
+
+                </div>
+<!--              <div class="card-body">-->
+<!--                <div class="post-meta d-flex text-uppercase gap-3 my-2 align-items-center">-->
+<!--                  <div class="meta-date"><svg width="16" height="16"><use xlink:href="#calendar"></use></svg>22 Aug 2021</div>-->
+<!--                  <div class="meta-categories"><svg width="16" height="16"><use xlink:href="#category"></use></svg>-->
+<!--                    {{data.City}}</div>-->
+<!--                </div>-->
+<!--                <div class="post-header">-->
+<!--                  <h3 class="post-title">-->
+<!--                    <a href="#" class="text-decoration-none">{{ data.Rooms }} Bedroom  {{data.Category}}</a>-->
+<!--                    <p >Kitchen : {{data.Kitchen}}<br>-->
+<!--                      <p style="color:red">₹{{data.Rent}}/month</p>-->
+
+<!--                    </p>-->
+<!--                  </h3>-->
+<!--                  <p>{{ data.Information }}  {{data.City}}</p>-->
+<!--                  <p>Phone : {{data.Mobile}}</p>-->
+<!--                </div>-->
+<!--              </div>-->
+
+              </div>
+            </article>
+          </div>
+
+
+<!--          <div class="col-md-4">-->
+<!--            <article class="post-item card border-0 shadow-sm p-3">-->
+<!--              <div class="image-holder zoom-effect">-->
+<!--                <a href="#">-->
+<!--                  <img src="#" alt="post" class="card-img-top">-->
+<!--                </a>-->
+<!--              </div>-->
+<!--              <div class="card-body">-->
+<!--                <div class="post-meta d-flex text-uppercase gap-3 my-2 align-items-center">-->
+<!--                  <div class="meta-date"><svg width="16" height="16"><use xlink:href="#calendar"></use></svg>25 Aug 2021</div>-->
+<!--                  <div class="meta-categories"><svg width="16" height="16"><use xlink:href="#category"></use></svg>trending</div>-->
+<!--                </div>-->
+<!--                <div class="post-header">-->
+<!--                  <h3 class="post-title">-->
+<!--                    <a href="#" class="text-decoration-none">Latest trends of wearing street wears supremely</a>-->
+<!--                  </h3>-->
+<!--                  <p>Lorem ipsum dolor sit amet, consectetur adipi elit. Aliquet eleifend viverra enim tincidunt donec quam. A in arcu, hendrerit neque dolor morbi...</p>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </article>-->
+<!--          </div>-->
+<!--          <div class="col-md-4">-->
+<!--            <article class="post-item card border-0 shadow-sm p-3">-->
+<!--              <div class="image-holder zoom-effect">-->
+<!--                <a href="#">-->
+<!--                  <img src="#" alt="post" class="card-img-top">-->
+<!--                </a>-->
+<!--              </div>-->
+<!--              <div class="card-body">-->
+<!--                <div class="post-meta d-flex text-uppercase gap-3 my-2 align-items-center">-->
+<!--                  <div class="meta-date"><svg width="16" height="16"><use xlink:href="#calendar"></use></svg>28 Aug 2021</div>-->
+<!--                  <div class="meta-categories"><svg width="16" height="16"><use xlink:href="#category"></use></svg>inspiration</div>-->
+<!--                </div>-->
+<!--                <div class="post-header">-->
+<!--                  <h3 class="post-title">-->
+<!--                    <a href="#" class="text-decoration-none">10 Different Types of comfortable clothes ideas for women</a>-->
+<!--                  </h3>-->
+<!--                  <p>Lorem ipsum dolor sit amet, consectetur adipi elit. Aliquet eleifend viverra enim tincidunt donec quam. A in arcu, hendrerit neque dolor morbi...</p>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </article>-->
+<!--          </div>-->
+        </div>
+      </div>
+    </section>
+
+
+</div>
+
+
+
+</div>
+
+</body>
+</html>
+{% endblock %}

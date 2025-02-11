@@ -44,3 +44,7 @@ def ClientLoginAuth(request):
     else:
         messages.warning(request, "invalid Username")
         return redirect(ClientLogin)
+def SingleProduct(request, pro_id):
+    data = PostDB.objects.get(id=pro_id)
+    categories = CategoryDB.objects.all()
+    return render(request, "singleproduct.html", {'data':data})
