@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+
+            <div class="col-md-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Add Category</h4>
+
+                  <form class="forms-sample" method="POST" action="{% url 'SaveCategory' %}" enctype="multipart/form-data">
+                      {% csrf_token %}
+
+                      <div class="form-group row">
+                      <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Category Name</label>
+                      <div class="col-sm-9">
+<!--                        <select type="text" class="form-control" id="exampleInputUsername2" placeholder="Category Name" name="catname">-->
+<!--                            <option value="Fruits">Fruits</option>-->
+<!--                            <option value="Vegetables">Vegetables</option>-->
+<!--                            <option value="Sweets">Sweets</option>-->
+<!--                            </select>-->
+
+
+                          <input type="text" class="form-control" id="exampleInputUsername2" placeholder="Category Name" name="catname">
+
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Description</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" id="exampleInputEmail2" placeholder="Description" name="des">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="exampleInputMobile" class="col-sm-3 col-form-label">Image</label>
+                      <div class="col-sm-9">
+                        <input type="file" class="form-control" id="exampleInputMobile" placeholder="Image" name="image">
+                      </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary me-2">Submit</button>
+                    <button class="btn btn-light">Cancel</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+   {% if messages %}
+      {% for i in messages %}
+          {% if i.tags == 'success' %}
+              <script>
+                  swal('{{i}}', '', 'success');
+              </script>
+          {% elif i.tags == 'error' %}
+              <script>
+                  swal('{{i}}', '', 'error');
+              </script>
+          {% elif i.tags == 'warning' %}
+              <script>
+                  swal('{{i}}', '', 'warning');
+              </script>
+          {% else %}
+              <script>
+                  swal('{{i}}', '', 'info');
+              </script>
+          {% endif %}
+      {% endfor %}
+   {% endif %}
+
+
+</body>
+</html>
+{% endblock %}

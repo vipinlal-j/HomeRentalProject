@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+</head>
+<body>
+
+<div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-md-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Add Category</h4>
+                  <form class="forms-sample" method="POST" action="{% url 'updateCat' cat_id=data.id %}" enctype="multipart/form-data">
+                      {% csrf_token %}
+
+                      <div class="form-group row">
+                      <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Category Name</label>
+                      <div class="col-sm-9">
+<!--                        <select type="text" class="form-control" id="exampleInputUsername2" placeholder="Category Name" name="catname" value="{{ data.CatName }}">-->
+<!--                            <option value="Fruits">Fruits</option>-->
+<!--                            <option value="Vegetables">Vegetables</option>-->
+<!--                            <option value="Sweets">Sweets</option>-->
+<!--                            </select>-->
+                          <input type="text" class="form-control" id="exampleInputUsername2" placeholder="Category Name" name="catname">
+
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Description</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" id="exampleInputEmail2" placeholder="Description" name="des" value="{{ data.Description }}">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="exampleInputMobile" class="col-sm-3 col-form-label">Image</label>
+                      <div class="col-sm-9">
+                          <img src="{{data.Image.url}}" width="70px" height="70px">
+                        <input type="file" class="form-control" id="exampleInputMobile" placeholder="Image" name="image" >
+                      </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary me-2">Submit</button>
+                    <button class="btn btn-light">Cancel</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+</body>
+</html>
+{% endblock %}
