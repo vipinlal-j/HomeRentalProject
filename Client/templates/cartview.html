@@ -1,0 +1,75 @@
+<!doctype html>
+
+{% extends 'client_index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>REGISTER</title>
+
+
+</head>
+<body>
+<div >
+    <div class="container-fluid">
+
+        <div class="bg-secondary py-5 my-5 rounded-5" style="background: url('images/bg-leaves-img-pattern.png') no-repeat;">
+          <div class="container my-5">
+            <div class="row" style="text-align:center; width:75%" >
+                <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Mobile</th>
+      <th scope="col">Email</th>
+      <th scope="col">City</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Property ID</th>
+      <th scope="col">Booking ID</th>
+
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for d in data %}
+    <tr>
+      <th scope="row">1</th>
+      <td>{{d.Name}}</td>
+      <td>{{d.Mobile}}</td>
+        <td>{{d.Email}}</td>
+        <td>{{d.City}}</td>
+        <td style="color:red">{{d.Amount}}</td>
+        <td>{{d.AdID}}</td>
+        <td>{{d.BookingID}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
+</div>
+</div>
+
+</body>
+</html>
+{% endblock %}

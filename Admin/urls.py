@@ -20,5 +20,6 @@ urlpatterns = [
 
     path('view_client/', views.view_client, name="view_client"),
     path('delete_client/<int:cat_id>/', views.delete_client, name="delete_client"),
+    path('client_cart/', views.client_cart, name="client_cart"),
 
 ]

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Display</title>
+</head>
+<body>
+<div class="table-responsive pt-3">
+                    <table class="table table-bordered">
+                        <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Mobile</th>
+      <th scope="col">Email</th>
+      <th scope="col">City</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Property ID</th>
+      <th scope="col">Booking ID</th>
+
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for d in data %}
+    <tr>
+      <th scope="row">1</th>
+      <td>{{d.Name}}</td>
+      <td>{{d.Mobile}}</td>
+        <td>{{d.Email}}</td>
+        <td>{{d.City}}</td>
+        <td style="color:red">{{d.Amount}}</td>
+        <td>{{d.AdID}}</td>
+        <td>{{d.BookingID}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+                    </table>
+                  </div>
+</body>
+</html>
+{% endblock %}

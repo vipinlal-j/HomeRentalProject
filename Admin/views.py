@@ -8,7 +8,7 @@ from django.utils.datastructures import MultiValueDictKeyError
 from django.core.files.storage import FileSystemStorage
 from HouseRentalManagementSystem import settings
 from User.models import userDB, PostDB
-from Client.models import ClientDB
+from Client.models import ClientDB, OrderDB
 from User import views
 import datetime
 
@@ -100,3 +100,7 @@ def delete_client(req,cat_id):
     a= ClientDB.objects.filter(id=cat_id)
     a.delete()
     return redirect(view_client)
+
+def client_cart(request):
+    data = OrderDB.objects.all()
+    return render(request, "client_cart.html", {'data':data})

@@ -12,5 +12,9 @@ urlpatterns = [
     path('ClientLogin/', views.ClientLogin, name="ClientLogin"),
     path('ClientLoginAuth/', views.ClientLoginAuth, name="ClientLoginAuth"),
     path('SingleProduct/<int:pro_id>/', views.SingleProduct, name="SingleProduct"),
+    path('aboutUs/', views.aboutUs, name="aboutUs"),
+    path('booking/<int:pro_id>/', views.booking, name="booking"),
+    path('cart/', views.cart, name="cart"),
+    path('cartview/', views.cartview, name="cartview"),
 
 ]

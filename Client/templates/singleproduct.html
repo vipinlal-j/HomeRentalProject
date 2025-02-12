@@ -49,6 +49,8 @@
                   </h3>
                   <p>{{ data.Information }}  {{data.City}}</p>
                   <p>Phone : {{data.Mobile}}</p>
+
+                  <a href="{% url 'booking' pro_id=data.id %}"><button type="submit" class="btn btn-primary">Book</button></a>
                 </div>
               </div>
 

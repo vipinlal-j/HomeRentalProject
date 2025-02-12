@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
-from Client.models import ClientDB
+from Client.models import ClientDB, BookingDB, OrderDB
 from User.models import PostDB
 from Admin.models import CategoryDB
 from django.contrib import messages
+from datetime import datetime
 
 
 # Create your views here.
@@ -48,3 +49,50 @@ def SingleProduct(request, pro_id):
     data = PostDB.objects.get(id=pro_id)
     categories = CategoryDB.objects.all()
     return render(request, "singleproduct.html", {'data':data})
+def aboutUs(req):
+    return render(req, "about_us.html")
+def booking(req, pro_id):
+    current_time = int(datetime.now().timestamp() * 1000)
+    data = PostDB.objects.get(id=pro_id)
+    return render(req, "booking.html", {'data':data, 'current_time':current_time})
+
+def cart(request):
+    if request.method=="POST":
+        a = request.POST.get('name')
+        b = request.POST.get('mobile')
+        c = request.POST.get('email')
+        d = request.POST.get('address')
+        e = request.POST.get('city')
+        f = request.POST.get('note')
+        g = request.POST.get('amount')
+        h = request.POST.get('ad_id')
+        i = request.POST.get('booking_id')
+        obj = OrderDB(Name=a, Mobile=b, Email=c, Address=d, City=e, Note=f, Amount=g, AdID=h, BookingID=i)
+        obj.save()
+        return redirect(client_home)
+def cartview(request):
+    data = OrderDB.objects.all()
+    return render(request, "cartview.html", {'data':data})
+
+
+
+
+
+
+
+# def cartSave(req):
+#     if req.method=="POST":
+#         pn = req.POST.get('pname')
+#         q = req.POST.get('qty')
+#         pr = req.POST.get('price')
+#         t = req.POST.get('total')
+#         un = req.POST.get('username')
+#         try:
+#             x = PostDB.objects.get(id=pn)
+#             img = x.Image
+#         except PostDB.DoesNotExist:
+#             img = None
+#         obj = BookingDB(ClientName=un, ProductName=pn, Quantity=q, Image=img, Price=pr, TotalPrice=t)
+#         obj.save()
+#         return redirect(client_home)
+
