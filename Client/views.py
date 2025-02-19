@@ -9,6 +9,7 @@ from django.utils.text import slugify
 import razorpay
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
+from django.db.models import Avg
 
 
 
@@ -38,6 +39,7 @@ def client_home(request):
     ads = PostDB.objects.all()
     categories = CategoryDB.objects.all()
     cat = CategoryDB.objects.all()
+
 
     processed_categories = [{"name": c.Name, "slug": slugify(c.Name)} for c in categories]
     return render(request, "client_home.html", {'ads':ads, 'categories':processed_categories, 'cat':cat})
