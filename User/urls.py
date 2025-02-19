@@ -6,12 +6,18 @@ from HouseRentalManagementSystem import settings
 
 
 urlpatterns = [
-    path('index/', views.index, name="index"),
-    path('user_register/', views.user_register, name="user_register"),
+    path('UserIndex/', views.UserIndex, name="UserIndex"),
+    path('RegisterUser/', views.RegisterUser, name="RegisterUser"),
     path('user_save/', views.user_save, name="user_save"),
 
     path('add_post/', views.add_post, name="add_post"),
     path('save_post/', views.save_post, name="save_post"),
+    path('UserLogin/', views.UserLogin, name="UserLogin"),
+    path('UserLoginAuth/', views.UserLoginAuth, name="UserLoginAuth"),
+    path('UserLogout/', views.UserLogout, name='UserLogout'),
+
+    path('ViewBookings/', views.ViewBookings, name='ViewBookings'),
+    path('PostDelete/<int:crt_id>/', views.PostDelete, name="PostDelete"),
 
 ]
 urlpatterns += staticfiles_urlpatterns()

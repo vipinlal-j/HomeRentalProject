@@ -1,0 +1,76 @@
+<!doctype html>
+
+{% extends 'client_index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>REGISTER</title>
+</head>
+<body>
+<div >
+    <div class="container-fluid">
+
+        <div class="bg-secondary py-5 my-5 rounded-5" style="background: url('images/bg-leaves-img-pattern.png') no-repeat;">
+          <div class="container my-5" style="padding-left:25%; padding-right:25%">
+
+                <form method="post" action="{% url 'save_review' %}">
+                    {% csrf_token %}
+                    <h3 style="color:#f4400d">Review</h3><br>
+                    <div style="text-align:center" >
+                        <input class="form-control" type="text" placeholder="Name" aria-label="default input example" name="name">
+                        <br>
+                        <input class="form-control" type="number" placeholder="Rating out of 5" aria-label="default input example" name="rating" min="1" max="5" step="1">
+                        <br>
+                        <input class="form-control" type="text" placeholder="Title" aria-label="default input example" name="title">
+                        <br>
+                        <input class="form-control" type="text" placeholder="Review" aria-label="default input example" name="review">
+                        <br>
+                        <input class="form-control" type="text" placeholder="Amount" aria-label="default input example" value="{{data.Rent}}" name="amount" readonly>
+                        <br>
+                        <input class="form-control" type="text" placeholder="Property ID" aria-label="default input example" value="{{data.id}}" name="ad_id" readonly>
+
+<!--                        <input class="form-control" type="text" placeholder="Booking ID" aria-label="Booking ID" value="{{ current_time }}" name="booking_id" id="booking_id" readonly>-->
+                        <br>
+                        <input type="text" name="username" id="username" value="{{ request.session.Email }}" readonly>
+                        <br>
+                        <input type="hidden" name="color" id="color">
+<!--                        <input class="form-control" type="text" id="bookingID" name="bookingID" readonly><br><br>-->
+
+
+                        <button class="btn btn-primary" type="submit">Add to Booking</button>
+
+
+
+
+                    </div>
+                </form>
+
+
+          </div>
+        </div>
+
+
+
+
+
+
+</div>
+</div>
+
+<style>
+  #booking_id {
+    padding-left: 120px; /* Adjust this based on your text width */
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDEwMDAiIHdpZHRoPSIxMDAwIiBoZWlnaHQ9IjEwMDAiPjx0ZXh0IHg9IjYiIHk9IjEwMCIgc3R5bGU9ImZvbnQtZmFtaWx5OiBBcmlhbCwgU2Fucy1zZXJpZiI+Qm9va2luZyBJRDwvdGV4dD48L3N2Zz4='); /* Inline SVG for "Booking ID" */
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 100px;
+  }
+</style>
+
+</body>
+</html>
+{% endblock %}

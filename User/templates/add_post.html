@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-{% extends 'index.html' %}
+{% extends 'userindex.html' %}
+
 {% block content %}
 
 <html lang="en">
@@ -51,6 +52,11 @@
   <input type="number" class="form-control" id="Mobile" placeholder="Mobile" name="mobile">
 </div>
 
+        <div class="mb-3">
+  <label  class="form-label">Email</label>
+  <input type="text" class="form-control" id="email" placeholder="Email" name="email" value="{{ request.session.Email }}" readonly>
+</div>
+
 
 
 
@@ -58,7 +64,7 @@
 
     <div class="mb-3">
         <label  class="form-label">Rent</label>
-<input type="number" id="rent" name="rent" class="form-control" aria-describedby="passwordHelpBlock">
+<input type="number" id="rent" name="rent" class="form-control" aria-describedby="passwordHelpBlock" placeholder="₹ ">
 <div  class="form-text">
 
 </div>

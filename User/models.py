@@ -21,6 +21,7 @@ class PostDB(models.Model):
     City = models.CharField(max_length=50, null=True, blank=True)
     Rent = models.CharField(max_length=50, null=True, blank=True)
     Mobile = models.IntegerField(max_length=10, null=True, blank=True)
+    Email = models.CharField(max_length=50, null=True, blank=True)
     Image = models.ImageField(upload_to='media/',null=True, blank=True)
 
 class ImageDB(models.Model):

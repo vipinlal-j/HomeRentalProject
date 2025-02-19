@@ -91,32 +91,27 @@
             <span class="text-primary">Your Bookings</span>
             <span class="badge bg-primary rounded-pill">3</span>
           </h4>
+
           <ul class="list-group mb-3">
-            <li class="list-group-item d-flex justify-content-between lh-sm">
-              <div>
-                <h6 class="my-0">Growers cider</h6>
-                <small class="text-body-secondary">Brief description</small>
-              </div>
-              <span class="text-body-secondary">$12</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between lh-sm">
-              <div>
-                <h6 class="my-0">Fresh grapes</h6>
-                <small class="text-body-secondary">Brief description</small>
-              </div>
-              <span class="text-body-secondary">$8</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between lh-sm">
-              <div>
-                <h6 class="my-0">Heinz tomato ketchup</h6>
-                <small class="text-body-secondary">Brief description</small>
-              </div>
-              <span class="text-body-secondary">$5</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between">
-              <span>Total (USD)</span>
-              <strong>$20</strong>
-            </li>
+
+<!--            <li class="list-group-item d-flex justify-content-between lh-sm">-->
+<!--              <div>-->
+<!--                <h6 class="my-0">Fresh grapes</h6>-->
+<!--                <small class="text-body-secondary">Brief description</small>-->
+<!--              </div>-->
+<!--              <span class="text-body-secondary">$8</span>-->
+<!--            </li>-->
+<!--            <li class="list-group-item d-flex justify-content-between lh-sm">-->
+<!--              <div>-->
+<!--                <h6 class="my-0">Heinz tomato ketchup</h6>-->
+<!--                <small class="text-body-secondary">Brief description</small>-->
+<!--              </div>-->
+<!--              <span class="text-body-secondary">$5</span>-->
+<!--            </li>-->
+<!--            <li class="list-group-item d-flex justify-content-between">-->
+<!--              <span>Total (USD)</span>-->
+<!--              <strong>$20</strong>-->
+<!--            </li>-->
           </ul>
 
           <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
@@ -178,21 +173,47 @@
 
           <div class="col-sm-8 col-lg-4 d-flex justify-content-end gap-5 align-items-center mt-4 mt-sm-0 justify-content-center justify-content-sm-end">
             <div class="support-box text-end d-none d-xl-block">
-              <span class="fs-6 text-muted">For Support?</span>
-              <h5 class="mb-0">+980-34984089</h5>
+<!--              <span class="fs-6 text-muted">For Support?</span>-->
+<!--              <h5 class="mb-0">+980-34984089</h5>-->
             </div>
+{% if request.session.Email %}
+    <!-- Display the Logout Button if the user is logged in -->
+    <form action="{% url 'ClientLogout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Logout</button>
+    </form>
 
             <ul class="d-flex justify-content-end list-unstyled m-0">
-              <li>
-                <a href="{% url 'ClientLogin' %}" class="rounded-circle bg-light p-2 mx-1">
-                  <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#user"></use></svg>
-                </a>
-              </li>
+<!--              <li>-->
+<!--                <a href="{% url 'ClientLogin' %}" class="rounded-circle bg-light p-2 mx-1">-->
+<!--                  <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#user"></use></svg>-->
+<!--                </a>-->
+<!--              </li>-->
               <li>
                 <a href="{% url 'cartview' %}" class="rounded-circle bg-light p-2 mx-1">
                   <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#cart"></use></svg>
                 </a>
               </li>
+
+{% else %}
+    <!-- Optionally, you can show a login link if the user is not logged in -->
+    <a href="{% url 'ClientLogin' %}">Login</a>
+{% endif %}
+
+
+
+<!--            <ul class="d-flex justify-content-end list-unstyled m-0">-->
+<!--              <li>-->
+<!--                <a href="{% url 'ClientLogin' %}" class="rounded-circle bg-light p-2 mx-1">-->
+<!--                  <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#user"></use></svg>-->
+<!--                </a>-->
+<!--              </li>-->
+<!--              <li>-->
+<!--                <a href="{% url 'cartview' %}" class="rounded-circle bg-light p-2 mx-1">-->
+<!--                  <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#cart"></use></svg>-->
+<!--                </a>-->
+<!--              </li>-->
+
               <li class="d-lg-none">
                 <a href="#" class="rounded-circle bg-light p-2 mx-1" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
                   <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#cart"></use></svg>
@@ -2509,11 +2530,11 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-6 copyright">
-            <p>© 2023 Foodmart. All rights reserved.</p>
+            <p>© 2023 Rent India. All rights reserved.</p>
           </div>
-          <div class="col-md-6 credit-link text-start text-md-end">
-            <p>Free HTML Template by <a href="https://templatesjungle.com/">TemplatesJungle</a> Distributed by <a href="https://themewagon">ThemeWagon</a></p>
-          </div>
+<!--          <div class="col-md-6 credit-link text-start text-md-end">-->
+<!--            <p>Free HTML Template by <a href="https://templatesjungle.com/">TemplatesJungle</a> Distributed by <a href="https://themewagon">ThemeWagon</a></p>-->
+<!--          </div>-->
         </div>
       </div>
     </div>

@@ -8,7 +8,8 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>REGISTER</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>{{data.City}}</title>
 </head>
 <body>
 
@@ -51,10 +52,15 @@
                   <p>Phone : {{data.Mobile}}</p>
 
                   <a href="{% url 'booking' pro_id=data.id %}"><button type="submit" class="btn btn-primary">Book</button></a>
-                </div>
-              </div>
+                  <a href="{% url 'review' pro_id=data.id %}"><button type="submit" class="btn btn-success">Write a review</button></a>
 
                 </div>
+              </div>
+                </div>
+
+
+
+
 <!--              <div class="card-body">-->
 <!--                <div class="post-meta d-flex text-uppercase gap-3 my-2 align-items-center">-->
 <!--                  <div class="meta-date"><svg width="16" height="16"><use xlink:href="#calendar"></use></svg>22 Aug 2021</div>-->
@@ -75,52 +81,36 @@
 <!--              </div>-->
 
               </div>
+
+
             </article>
           </div>
+          <div style=" width:100%; border-radius:10px">
+            <br>
+            <div style="background-color:white; width:90%; border-radius:10px; margin:auto">
+              <div class="card">
+  <div class="card-header">
+    <h5>Ratings & Reviews</h5>
+  </div>
+                {% for r in rating %}
+
+  <div class="card-body">
+    <h5 class="card-title"><span class="rating-badge" style="background-color:{{r.Color}}; color: white;">
+        {{r.Rating}} <i class="fas fa-star"></i>
+    </span>
+    <span class="review-text">{{r.Title}}</span></h5>
+    <p class="card-text">{{r.Review}}</p>
+    <div style="display:flex"><p>{{r.ClientName}}    </p><p>   </p><a href="#" class="btn " style="color:red">report</a></div>
+
+  </div>
+                {% endfor %}
 
 
-<!--          <div class="col-md-4">-->
-<!--            <article class="post-item card border-0 shadow-sm p-3">-->
-<!--              <div class="image-holder zoom-effect">-->
-<!--                <a href="#">-->
-<!--                  <img src="#" alt="post" class="card-img-top">-->
-<!--                </a>-->
-<!--              </div>-->
-<!--              <div class="card-body">-->
-<!--                <div class="post-meta d-flex text-uppercase gap-3 my-2 align-items-center">-->
-<!--                  <div class="meta-date"><svg width="16" height="16"><use xlink:href="#calendar"></use></svg>25 Aug 2021</div>-->
-<!--                  <div class="meta-categories"><svg width="16" height="16"><use xlink:href="#category"></use></svg>trending</div>-->
-<!--                </div>-->
-<!--                <div class="post-header">-->
-<!--                  <h3 class="post-title">-->
-<!--                    <a href="#" class="text-decoration-none">Latest trends of wearing street wears supremely</a>-->
-<!--                  </h3>-->
-<!--                  <p>Lorem ipsum dolor sit amet, consectetur adipi elit. Aliquet eleifend viverra enim tincidunt donec quam. A in arcu, hendrerit neque dolor morbi...</p>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </article>-->
-<!--          </div>-->
-<!--          <div class="col-md-4">-->
-<!--            <article class="post-item card border-0 shadow-sm p-3">-->
-<!--              <div class="image-holder zoom-effect">-->
-<!--                <a href="#">-->
-<!--                  <img src="#" alt="post" class="card-img-top">-->
-<!--                </a>-->
-<!--              </div>-->
-<!--              <div class="card-body">-->
-<!--                <div class="post-meta d-flex text-uppercase gap-3 my-2 align-items-center">-->
-<!--                  <div class="meta-date"><svg width="16" height="16"><use xlink:href="#calendar"></use></svg>28 Aug 2021</div>-->
-<!--                  <div class="meta-categories"><svg width="16" height="16"><use xlink:href="#category"></use></svg>inspiration</div>-->
-<!--                </div>-->
-<!--                <div class="post-header">-->
-<!--                  <h3 class="post-title">-->
-<!--                    <a href="#" class="text-decoration-none">10 Different Types of comfortable clothes ideas for women</a>-->
-<!--                  </h3>-->
-<!--                  <p>Lorem ipsum dolor sit amet, consectetur adipi elit. Aliquet eleifend viverra enim tincidunt donec quam. A in arcu, hendrerit neque dolor morbi...</p>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </article>-->
-<!--          </div>-->
+</div>
+
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -131,6 +121,60 @@
 
 
 </div>
+
+
+<!--<style>-->
+<!--        .rating-badge {-->
+<!--            display: inline-flex;-->
+<!--            align-items: center;-->
+<!--            background-color: green; /* Green background */-->
+<!--            color: white;-->
+<!--            padding: 5px 10px;-->
+<!--            border-radius: 5px;-->
+<!--            font-weight: bold;-->
+<!--            font-size: 16px;-->
+<!--        }-->
+<!--        .rating-badge i {-->
+<!--            margin-left: 5px;-->
+<!--            color: white;-->
+<!--        }-->
+<!--        .review-text {-->
+<!--            font-size: 16px;-->
+<!--            font-weight: bold;-->
+<!--            margin-left: 10px;-->
+<!--            color: #333;-->
+<!--        }-->
+<!--    </style>-->
+
+
+
+<!--<script>-->
+<!--    function updateRatingBadge(rating) {-->
+<!--        const badge = document.querySelector('.rating-badge');-->
+
+<!--        // Define color based on rating-->
+<!--        let color;-->
+<!--        if (rating == 5) {-->
+<!--            color = "#28a745"; // Green-->
+<!--        } else if (rating === 4) {-->
+<!--            color = "#28a745"; // Green-->
+<!--        } else if (rating === 3) {-->
+<!--            color = "#ffc107"; // Yellow-->
+<!--        } else if (rating === 2) {-->
+<!--            color = "#fd7e14"; // Orange-->
+<!--        } else if (rating === 1) {-->
+<!--            color = "#dc3545"; // Red-->
+<!--        }-->
+
+<!--        badge.style.backgroundColor = color;-->
+<!--    }-->
+
+<!--    // Example usage: Change the rating dynamically-->
+
+<!--  updateRatingBadge({{ rating.Rating }});-->
+<!--</script>-->
+
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
 </body>
 </html>

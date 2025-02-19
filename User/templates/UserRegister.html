@@ -1,0 +1,164 @@
+
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+  	<title>Register</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="{% static 'LoginStyles/css/style.css' %}">
+
+	</head>
+	<body>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">Sign Up</h2>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-lg-10">
+					<div class="wrap d-md-flex">
+						<div class="text-wrap p-4 p-lg-5 d-flex img d-flex align-items-end" style="background-image: url(images/bg.jpg);">
+							<div class="text w-100">
+								<h2 class="mb-4">Welcome to signup form</h2>
+								<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+							</div>
+			      </div>
+						<div class="login-wrap p-4 p-md-5">
+	      			<h3 class="mb-3">Create an account</h3>
+							<form action="{% url 'user_save' %}" class="signup-form" method="POST">
+								{% csrf_token %}
+
+								<div class="row">
+									<div class="col-md-12">
+										<div class="form-group d-flex align-items-center">
+					      			<label class="label" >Name</label>
+					      			<input type="text" class="form-control" placeholder="Full Name" name="name">
+					      		</div>
+									</div>
+
+									<div class="col-md-12">
+										<div class="form-group d-flex align-items-center">
+					      			<label class="label" >City</label>
+					      			<input type="text" class="form-control" placeholder="City" name="city">
+					      		</div>
+									</div>
+
+
+									<div class="col-md-12">
+										<div class="form-group d-flex align-items-center">
+					      			<label class="label" >Address</label>
+					      			<input type="text" class="form-control" placeholder="Address" name="address">
+					      		</div>
+									</div>
+
+
+									<div class="col-md-12">
+										<div class="form-group d-flex align-items-center">
+					      			<label class="label" >Email Address</label>
+					      			<input type="text" class="form-control" placeholder="johndoe@email.com" name="email">
+					      		</div>
+									</div>
+									<div class="col-md-12">
+										<div class="form-group d-flex align-items-center">
+					      			<label class="label" >Phone no.</label>
+					      			<input type="text" class="form-control" placeholder="+01" name="mobile">
+					      		</div>
+									</div>
+									<div class="col-md-12">
+										<div class="form-group d-flex align-items-center">
+				            	<label class="label" >Password</label>
+				              <input type="password" class="form-control" placeholder="Password" name="password">
+				            </div>
+									</div>
+									<div class="col-md-12">
+										<div class="form-group d-flex align-items-center">
+				            	<label class="label" >Confirm Password</label>
+				              <input type="password" class="form-control" placeholder="Password" name="pass">
+				            </div>
+
+									</div>
+									<div class="col-md-12 my-4">
+										<div class="form-group">
+				            	<div class="w-100">
+					            	<label class="checkbox-wrap checkbox-primary">I agree all statements in terms of service
+												  <input type="checkbox" checked>
+												  <span class="checkmark"></span>
+												</label>
+											</div>
+				            </div>
+									</div>
+									<div class="col-md-12">
+										<div class="form-group">
+				            	<button type="submit" class="btn btn-secondary submit p-3">Create an account</button>
+				            </div>
+									</div>
+								</div>
+
+		          </form>
+		          <div class="social-wrap">
+		          	<p class="or">
+		          		<span>or</span>
+		          	</p>
+		      			<p class="mb-3 text-center">Signup with this services</p>
+		      			<p class="social-media d-flex justify-content-center">
+		      				<a href="#" class="social-icon google d-flex align-items-center justify-content-center"><span class="fa fa-google"></span></a>
+									<a href="#" class="social-icon facebook d-flex align-items-center justify-content-center"><span class="fa fa-facebook"></span></a>
+									<a href="#" class="social-icon twitter d-flex align-items-center justify-content-center"><span class="fa fa-twitter"></span></a>
+								</p>
+	          	</div>
+		          <div class="w-100 text-center">
+								<p class="mt-4">I'm already a member! <a href="{% url 'UserLogin' %}">Sign In</a></p>
+		          </div>
+		        </div>
+		      </div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="{% static 'LoginStyles/js/jquery.min.js' %}"></script>
+  <script src="{% static 'LoginStyles/js/popper.js' %}"></script>
+  <script src="{% static 'LoginStyles/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'LoginStyles/js/main.js' %}"></script>
+	<script>
+        function myfunction(){
+            a = document.myform.pass.value;
+            if(a == "" || a == null){
+                alert("Please enter password.......!")
+            }
+        }
+    </script>
+
+	{% if messages %}
+      {% for i in messages %}
+          {% if i.tags == 'success' %}
+              <script>
+                  swal('{{i}}', '', 'success');
+              </script>
+          {% elif i.tags == 'error' %}
+              <script>
+                  swal('{{i}}', '', 'error');
+              </script>
+          {% elif i.tags == 'warning' %}
+              <script>
+                  swal('{{i}}', '', 'warning');
+              </script>
+          {% else %}
+              <script>
+                  swal('{{i}}', '', 'info');
+              </script>
+          {% endif %}
+      {% endfor %}
+   {% endif %}
+
+	</body>
+</html>
+
