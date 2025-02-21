@@ -33,4 +33,7 @@ urlpatterns = [
     path('cartDelete/<int:crt_id>/', views.cartDelete, name="cartDelete"),
     path('save_payment/<str:booking_id>/', views.save_payment_details, name='save_payment'),
 
+    path('FilteredByCat/<cat>/', views.FilteredByCat, name="FilteredByCat"),
+    path('FilteredByCity/<ads>/', views.FilteredByCity, name="FilteredByCity"),
+
 ]

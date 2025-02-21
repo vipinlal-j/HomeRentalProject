@@ -43,7 +43,7 @@ def UserLoginAuth(request):
             return redirect(UserIndex)
         else:
             messages.warning(request, "invalid Password")
-            return redirect(UserIndex)
+            return redirect(UserLogin)
     else:
         messages.warning(request, "invalid Username")
 
@@ -75,7 +75,6 @@ def save_post(request):
 
 def ViewBookings(request):
     data = PostDB.objects.filter(Email=request.session['Email'])
-
     return render(request, "ViewBookings.html", {'data':data})
 
 def PostDelete(request, crt_id):

@@ -39,10 +39,11 @@ def client_home(request):
     ads = PostDB.objects.all()
     categories = CategoryDB.objects.all()
     cat = CategoryDB.objects.all()
+    city = PostDB.objects.all()
 
 
     processed_categories = [{"name": c.Name, "slug": slugify(c.Name)} for c in categories]
-    return render(request, "client_home.html", {'ads':ads, 'categories':processed_categories, 'cat':cat})
+    return render(request, "client_home.html", {'ads':ads, 'categories':processed_categories, 'cat':cat, 'city':city})
 
 # def filtered(request):
 #     ads = PostDB.objects.all()
@@ -294,3 +295,18 @@ def save_review(request):
 #         obj.save()
 #         return redirect(client_home)
 
+def FilteredByCat(request, cat):
+    try:
+       # Filter ads based on the category
+        ads = PostDB.objects.filter(Category=cat)
+    except CategoryDB.DoesNotExist:
+        ads = []  # If category doesn't exist, return an empty list
+
+    # Fetch all categories for the sidebar or dropdown
+    all_categories = CategoryDB.objects.all()
+
+    return render(request, "FilteredByCat.html", {'cat': all_categories, 'ads': ads})
+
+def FilteredByCity(request, ads):
+    ads = PostDB.objects.filter(City=ads)
+    return render(request, "FilteredByCity.html",{'ads': ads})

@@ -20,62 +20,18 @@
 
         <div class="bg-secondary py-5 my-5 rounded-5" style="background: url('images/bg-leaves-img-pattern.png') no-repeat;">
 
-            <div style="width:100%;  height:auto">
+            <div style="width:100%;  height:300px">
     <section class="py-5 overflow-hidden">
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-12">
-            <div class="section-header d-flex flex-wrap flex-wrap justify-content-between mb-5">
-
-              <h2 class="section-title">Cities</h2>
-
-              <div class="d-flex align-items-center">
-                <a href="#" class="btn-link text-decoration-none">View All Cities →</a>
-                <div class="swiper-buttons">
-                  <button class="swiper-prev brand-carousel-prev btn btn-yellow">❮</button>
-                  <button class="swiper-next brand-carousel-next btn btn-yellow">❯</button>
-                </div>
-              </div>
-
-            </div>
-        <div class="row">
-          <div class="col-md-12">
-
-            <div class="brand-carousel swiper">
-              <div class="swiper-wrapper">
-{% for i in city %}
-                <div class="swiper-slide">
-                  <div class="card mb-3 p-3 rounded-4 shadow border-0">
-                    <div class="row g-0">
-                      <div class="col-md-4">
-                          <a href="{% url 'FilteredByCity' ads=i.City %}"><img src="{{i.Image.url}}" class="img-fluid rounded" alt="Card title"></a>
-
-                      </div>
-                      <div class="col-md-8">
-                        <div class="card-body py-0">
-                          <p class="text-muted mb-0">{{i.City}}</p>
-                          <p class="card-title">Upto 40% off on your first booking</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                  {% endfor %}
-
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-
 
             <div class="section-header d-flex flex-wrap flex-wrap justify-content-between mb-5">
 
               <h2 class="section-title">Categories</h2>
 
               <div class="d-flex align-items-center">
-                <a href="#" class="btn-link text-decoration-none">View All Categories →</a>
+                <a href="{% url 'client_home' %}" class="btn-link text-decoration-none">View All Categories →</a>
                 <div class="swiper-buttons">
                   <button class="swiper-prev brand-carousel-prev btn btn-yellow">❮</button>
                   <button class="swiper-next brand-carousel-next btn btn-yellow">❯</button>
@@ -101,89 +57,13 @@
                       <div class="col-md-8">
                         <div class="card-body py-0">
                           <p class="text-muted mb-0">{{i.Name}}</p>
-                          <p class="card-title">Upto 40% off on your first booking</p>
+                          <h5 class="card-title">Find your ideal stay with us and get upto 40% off on your first booking</h5>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
                   {% endfor %}
-
-<!--                <div class="swiper-slide">-->
-<!--                  <div class="card mb-3 p-3 rounded-4 shadow border-0">-->
-<!--                    <div class="row g-0">-->
-<!--                      <div class="col-md-4">-->
-<!--                        <img src="#" class="img-fluid rounded" alt="Card title">-->
-<!--                      </div>-->
-<!--                      <div class="col-md-8">-->
-<!--                        <div class="card-body py-0">-->
-<!--                          <p class="text-muted mb-0">Amber Jar</p>-->
-<!--                          <h5 class="card-title">Honey best nectar you wish to get</h5>-->
-<!--                        </div>-->
-<!--                      </div>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--                <div class="swiper-slide">-->
-<!--                  <div class="card mb-3 p-3 rounded-4 shadow border-0">-->
-<!--                    <div class="row g-0">-->
-<!--                      <div class="col-md-4">-->
-<!--                        <img src="#" class="img-fluid rounded" alt="Card title">-->
-<!--                      </div>-->
-<!--                      <div class="col-md-8">-->
-<!--                        <div class="card-body py-0">-->
-<!--                          <p class="text-muted mb-0">Amber Jar</p>-->
-<!--                          <h5 class="card-title">Honey best nectar you wish to get</h5>-->
-<!--                        </div>-->
-<!--                      </div>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--                <div class="swiper-slide">-->
-<!--                  <div class="card mb-3 p-3 rounded-4 shadow border-0">-->
-<!--                    <div class="row g-0">-->
-<!--                      <div class="col-md-4">-->
-<!--                        <img src="#" class="img-fluid rounded" alt="Card title">-->
-<!--                      </div>-->
-<!--                      <div class="col-md-8">-->
-<!--                        <div class="card-body py-0">-->
-<!--                          <p class="text-muted mb-0">Amber Jar</p>-->
-<!--                          <h5 class="card-title">Honey best nectar you wish to get</h5>-->
-<!--                        </div>-->
-<!--                      </div>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--                <div class="swiper-slide">-->
-<!--                  <div class="card mb-3 p-3 rounded-4 shadow border-0">-->
-<!--                    <div class="row g-0">-->
-<!--                      <div class="col-md-4">-->
-<!--                        <img src="#" class="img-fluid rounded" alt="Card title">-->
-<!--                      </div>-->
-<!--                      <div class="col-md-8">-->
-<!--                        <div class="card-body py-0">-->
-<!--                          <p class="text-muted mb-0">Amber Jar</p>-->
-<!--                          <h5 class="card-title">Honey best nectar you wish to get</h5>-->
-<!--                        </div>-->
-<!--                      </div>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--                <div class="swiper-slide">-->
-<!--                  <div class="card mb-3 p-3 rounded-4 shadow border-0">-->
-<!--                    <div class="row g-0">-->
-<!--                      <div class="col-md-4">-->
-<!--                        <img src="#" class="img-fluid rounded" alt="Card title">-->
-<!--                      </div>-->
-<!--                      <div class="col-md-8">-->
-<!--                        <div class="card-body py-0">-->
-<!--                          <p class="text-muted mb-0">Amber Jar</p>-->
-<!--                          <h5 class="card-title">Honey best nectar you wish to get</h5>-->
-<!--                        </div>-->
-<!--                      </div>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                </div>-->
 
               </div>
             </div>
@@ -200,7 +80,7 @@
           <div class="container my-5">
             <div class="row">
               <div class="tabs-header d-flex justify-content-between border-bottom my-5">
-                <h3>Trending Properties</h3>
+                <h3>Trending {{ads.Category}}</h3>
                 <nav>
                   <div class="nav nav-tabs" id="nav-tab" role="tablist">
 <!--                    <a href="#" class="nav-link text-uppercase fs-6 active" id="nav-all-tab" data-bs-toggle="tab" data-bs-target="#nav-all">All</a>-->
@@ -548,11 +428,10 @@
             </div>
 
           </div>
-        </div>
 
-      </div>
 
 </div>
+
 
 
 
