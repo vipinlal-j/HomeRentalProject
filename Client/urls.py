@@ -11,7 +11,7 @@ urlpatterns = [
     path('client_home/', views.client_home, name="client_home"),
     # path('filtered/<cat_name>/', views.filtered, name="filtered"),
 
-    path('ClientLogin/', views.ClientLogin, name="ClientLogin"),
+    path('', views.ClientLogin, name="ClientLogin"),
     path('ClientLoginAuth/', views.ClientLoginAuth, name="ClientLoginAuth"),
     path('SingleProduct/<int:pro_id>/', views.SingleProduct, name="SingleProduct"),
     path('aboutUs/', views.aboutUs, name="aboutUs"),
